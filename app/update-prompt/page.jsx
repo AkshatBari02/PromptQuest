@@ -1,10 +1,15 @@
 "use client";
 
 import {useEffect, useState, Suspense} from 'react';
-import { useSession } from 'next-auth/react';
 import { useRouter,useSearchParams } from 'next/navigation';
-import Form from '@components/Form';
-
+// import Form from '@components/Form';
+import dynamic from 'next/dynamic';
+const Form = dynamic(
+    ()=>import("@components/Form"),
+    {
+        ssr: false
+    }
+)
 const EditPrompt = () => {
     const router = useRouter();
     const [submitting, setSubmitting] = useState(false);
