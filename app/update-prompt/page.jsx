@@ -2,7 +2,6 @@
 
 import {useEffect, useState, Suspense} from 'react';
 import { useRouter,useSearchParams } from 'next/navigation';
-// import Form from '@components/Form';
 import dynamic from 'next/dynamic';
 const Form = dynamic(
     ()=>import("@components/Form"),
@@ -17,13 +16,8 @@ const EditPrompt = () => {
         prompt: '',
         tag: '',
     });
-    // const searchParams = useSearchParams();
-    // const promptId = searchParams?.get('id');
-    // const { query } = useRouter();
-    // const promptId = query.id;
     const [promptId, setPromptId] = useState(null);
     useEffect(() => {
-        // Extract query parameters after the router is ready
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get("id");
         setPromptId(id);
