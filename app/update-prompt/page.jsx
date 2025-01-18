@@ -17,8 +17,17 @@ const EditPrompt = () => {
         prompt: '',
         tag: '',
     });
-    const searchParams = useSearchParams();
-    const promptId = searchParams.get('id');
+    // const searchParams = useSearchParams();
+    // const promptId = searchParams?.get('id');
+    // const { query } = useRouter();
+    // const promptId = query.id;
+    const [promptId, setPromptId] = useState(null);
+    useEffect(() => {
+        // Extract query parameters after the router is ready
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+        setPromptId(id);
+      }, []);
 
     useEffect(()=>{
         const getPromptDetails = async()=>{
