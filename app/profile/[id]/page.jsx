@@ -1,5 +1,5 @@
 'use client';
-import Loading from '@components/loading';
+import Loading from '@components/Loading';
 import Profile from '@components/Profile';
 import { useSearchParams } from 'next/navigation';
 import {useState,useEffect} from 'react';
