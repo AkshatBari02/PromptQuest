@@ -4,11 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 const Nav = () => {
-  const {data: session} = useSession();
+  const { data: session } = useSession();
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
 
@@ -64,7 +64,9 @@ const Nav = () => {
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
                   className="black_btn"
-                >Sign In with &nbsp; <FontAwesomeIcon icon={faGoogle} /></button>
+                >
+                  Sign In with &nbsp; <FontAwesomeIcon icon={faGoogle} />
+                </button>
               ))}
           </>
         )}
@@ -120,7 +122,9 @@ const Nav = () => {
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
                   className="black_btn"
-                ></button>
+                >
+                  Sign In with &nbsp; <FontAwesomeIcon icon={faGoogle} />
+                </button>
               ))}
           </>
         )}
